@@ -1,0 +1,22 @@
+<div id="content" ng-controller="GameController as ctrl">
+  <div id="heading" class="row">
+    <h1 class="title">ng-2048</h1>
+    <div class="scores-container">
+      <div class="score-container">{{ ctrl.game.currentScore }}</div>
+      <div class="best-container">{{ ctrl.game.highScore }}</div>
+    </div>
+  </div>
+  <div id="instructions" class="row">
+    Join the numbers and get to the <strong>2048</strong> tile!
+    <button ng-click='ctrl.newGame()' class="restart-button">New game</button>
+  </div>
+  <div id="game-container">
+    <div grid ng-model='ctrl.game' class="row"></div>
+    <div id="game-over" ng-if="ctrl.game.gameOver" class="row game-overlay">
+      Game Over
+      <div class="lower">
+        <a class="retry-button" ng-click="ctrl.newGame()">Try again</a>
+      </div>
+    </div>
+  </div>
+</div>
